@@ -21,7 +21,7 @@ public class CalcPi {
         piApproximation *= 4;
 
         // Print the results
-        System.out.printf("pi according to Java: %.15f%n", Math.PI);
+        System.out.printf("pi according to Java: %.16f%n", Math.PI);
         System.out.printf("pi, approximated:     %.15f%n", piApproximation);
     }
 }
