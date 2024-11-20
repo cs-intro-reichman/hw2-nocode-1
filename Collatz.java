@@ -1,13 +1,19 @@
-    public class Collatz {
-        public static void main(String[] args) {
-            int input = Integer.parseInt(args[0]);
-            String mode = args[1];
-    
-            for (int seed = 1; seed <= input; seed++) {
-                int steps = 0;
-                int current = seed;
-                StringBuilder sequence = new StringBuilder();
-    
+public class Collatz {
+    public static void main(String[] args) {
+        int input = Integer.parseInt(args[0]); // Number of sequences to compute
+        String mode = args[1]; // Mode ("v" for verbose)
+
+        for (int seed = 1; seed <= input; seed++) {
+            int steps = 0;
+            int current = seed;
+            StringBuilder sequence = new StringBuilder();
+
+            // Special handling for seed = 1
+            if (seed == 1) {
+                sequence.append("1 (1)");
+                steps = 1;
+            } else {
+                // Compute the Collatz sequence for numbers > 1
                 while (current != 1) {
                     sequence.append(current).append(" ");
                     if (current % 2 == 0) {
@@ -18,12 +24,16 @@
                     steps++;
                 }
                 sequence.append("1 (").append(steps + 1).append(")");
-    
-                if (mode.equals("v")) {
-                    System.out.println(sequence.toString());
-                }
             }
-    
-            System.out.println("Every one of the first " + input + " hailstone sequences reached 1.");
+
+            // Print sequence if mode is verbose
+            if (mode.equals("v")) {
+                System.out.println(sequence.toString());
+            }
         }
+
+        // Print summary message
+        System.out.println("Every one of the first " + input + " hailstone sequences reached 1.");
     }
+}
+
