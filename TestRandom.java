@@ -2,5 +2,32 @@
 public  class  TestRandom {
 	public static void main(String[]  args) {
 	    // Replace this comment with your code
+
+		int input = Integer.parseInt(args[0]);
+
+		int valueGreater =0;
+		int valueSmaller =0;
+
+
+		for(int i=0; i<input; i++){
+			double first = Math.random(); 
+		 
+		if (first > 0.5) {
+			valueGreater++;
+		} else {
+			valueSmaller++;
+		}
+	}
+		
+		if (valueGreater == 0 || valueGreater == 0) {
+            System.out.println("Edge case: All values are on one side.");
+        } else {
+            double ratio = (double) valueGreater / valueSmaller;
+            System.out.println("> 0.5: " + valueGreater + " times");
+            System.out.println("<= 0.5: " + valueSmaller + " times");
+            System.out.println("Ratio: " + ratio);
+        }
+	
+
 	}
 }
