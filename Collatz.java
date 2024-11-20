@@ -8,23 +8,17 @@ public class Collatz {
             int current = seed;
             StringBuilder sequence = new StringBuilder();
 
-            // Special handling for seed = 1
-            if (seed == 1) {
-                sequence.append("1 (1)");
-                steps = 1;
-            } else {
-                // Compute the Collatz sequence for numbers > 1
-                while (current != 1) {
-                    sequence.append(current).append(" ");
-                    if (current % 2 == 0) {
-                        current /= 2;
-                    } else {
-                        current = current * 3 + 1;
-                    }
-                    steps++;
+            while (current != 1) {
+                sequence.append(current).append(" ");
+                if (current % 2 == 0) {
+                    current /= 2;
+                } else {
+                    current = current * 3 + 1;
                 }
-                sequence.append("1 (").append(steps + 1).append(")");
+                steps++;
             }
+
+            sequence.append("1 (").append(steps + 1).append(")");
 
             // Print sequence if mode is verbose
             if (mode.equals("v")) {
@@ -32,7 +26,6 @@ public class Collatz {
             }
         }
 
-        // Print summary message
         System.out.println("Every one of the first " + input + " hailstone sequences reached 1.");
     }
 }
