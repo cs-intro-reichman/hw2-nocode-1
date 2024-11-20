@@ -8,7 +8,8 @@ public class Collatz {
             int current = seed;
             StringBuilder sequence = new StringBuilder();
 
-            while (current != 1) {
+            // Compute the Collatz sequence for all seeds
+            do {
                 sequence.append(current).append(" ");
                 if (current % 2 == 0) {
                     current /= 2;
@@ -16,8 +17,9 @@ public class Collatz {
                     current = current * 3 + 1;
                 }
                 steps++;
-            }
+            } while (current != 1);
 
+            // Append the final "1" and total steps
             sequence.append("1 (").append(steps + 1).append(")");
 
             // Print sequence if mode is verbose
@@ -26,7 +28,9 @@ public class Collatz {
             }
         }
 
+        // Print summary message
         System.out.println("Every one of the first " + input + " hailstone sequences reached 1.");
     }
 }
+
 
